@@ -8,8 +8,6 @@ env.bak/
 venv.bak/
 
 # Project specific
-data/
-get-pip.py
 
 # Jupyter Notebook
 .ipynb_checkpoints
