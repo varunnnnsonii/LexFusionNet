@@ -5,3 +5,7 @@ venv/
 .git/
 Dockerfile
 docker-compose.yml
+data/
+logs/
+artifacts/
+
