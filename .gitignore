@@ -8,24 +8,24 @@ env.bak/
 venv.bak/
 
 # Project specific — raw data (large, not version controlled)
-data/input/
-data/processed/**/*.json
-data/processed/**/*.db
-data/processed/**/*.pkl
-# Keep directory structure
-!data/processed/
-!data/processed/parsed/
-!data/processed/chunks/
-!data/processed/**/.gitkeep
+data/**/*.json
+data/**/*.db
+data/**/*.pkl
+data/**/*.txt
+data/**/*.pdf
 
-# Model weights and large artifacts
-artifacts/models/
-artifacts/citation_graph.graphml
-artifacts/citation_graph.pkl
+# Keep directory structure
+!data/**/.gitkeep
+
+# Globally ignored models
 *.pkl
 *.pt
 *.bin
 *.onnx
+
+# Allow everything in artifacts folder
+!artifacts/
+!artifacts/**
 
 # Qdrant Docker volume
 qdrant_data/
