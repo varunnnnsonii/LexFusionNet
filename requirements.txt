@@ -1,1 +1,24 @@
-# Dependencies for LexFusionNet
+# LexiFusionNet Dependencies
+# Organized by phase — install all for full pipeline
+
+# === Phase 0: Data Audit & Parsing ===
+pyyaml>=6.0
+matplotlib>=3.8
+
+# === Phase 1: Retrieval MVP ===
+sentence-transformers>=2.7
+torch>=2.2
+qdrant-client>=1.9
+rank-bm25>=0.2.2
+tiktoken>=0.7
+
+# === Phase 2: Structural Intelligence ===
+networkx>=3.2
+scipy>=1.12
+
+# === Phase 3: Advanced Modeling ===
+gensim>=4.3
+scikit-learn>=1.4
+
+# === Testing ===
+pytest>=8.0

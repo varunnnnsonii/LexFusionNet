@@ -1,0 +1,99 @@
+# LexiFusionNet Configuration
+# All paths are relative to project root unless stated otherwise.
+
+project:
+  name: "LexiFusionNet"
+  version: "0.1.0"
+
+paths:
+  raw_data: "data/input/supreme_court_judgments_txt"
+  parsed_data: "data/processed/parsed"
+  chunks_data: "data/processed/chunks"
+  metadata_db: "data/processed/metadata.db"
+  bm25_index: "data/processed/bm25_index.pkl"
+  citation_graph: "artifacts/citation_graph.graphml"
+  citation_graph_pkl: "artifacts/citation_graph.pkl"
+  audit_report: "artifacts/data_audit_report.json"
+  eval_results: "artifacts/eval_results"
+  models: "artifacts/models"
+
+parsing:
+  # Minimum body text length (in characters) to consider a file valid
+  min_body_length: 200
+  # Minimum file size in bytes to attempt parsing
+  min_file_size: 500
+  # IndianKanoon page marker pattern (compiled at runtime)
+  page_marker_pattern: '^.*Indian Kanoon - http://indiankanoon\.org/doc/\d+/?\s*$'
+  # Number of header lines to scan for metadata
+  header_scan_lines: 10
+
+chunking:
+  # Target chunk size in tokens (using tiktoken cl100k_base)
+  chunk_size: 400
+  # Overlap between consecutive chunks in tokens
+  chunk_overlap: 40
+  # Maximum chunks per case (prevents mega-files from dominating)
+  max_chunks_per_case: 50
+  # Tokenizer encoding name
+  tokenizer: "cl100k_base"
+
+embedding:
+  # Bi-encoder model for dense embeddings
+  model_name: "BAAI/bge-base-en-v1.5"
+  # Embedding dimension (must match model output)
+  dimension: 768
+  # Batch size for GPU encoding
+  batch_size: 128
+  # Device for encoding
+  device: "cuda"
+  # Whether to normalize embeddings (required for cosine similarity)
+  normalize: true
+
+reranker:
+  # Cross-encoder model for reranking
+  model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  # Number of candidates from hybrid retrieval to rerank
+  top_k_candidates: 20
+  # Final number of results after reranking
+  top_k_final: 10
+
+retrieval:
+  # BM25 top-k per query
+  bm25_top_k: 100
+  # Dense retrieval top-k per query
+  dense_top_k: 100
+  # Reciprocal Rank Fusion constant
+  rrf_k: 60
+  # Final hybrid result count before reranking
+  hybrid_top_k: 20
+
+qdrant:
+  host: "localhost"
+  port: 6333
+  collection_name: "lexifusionnet_chunks"
+  # HNSW index parameters
+  hnsw_m: 16
+  hnsw_ef_construct: 100
+
+graph:
+  # node2vec parameters
+  node2vec_dimensions: 128
+  node2vec_walk_length: 30
+  node2vec_num_walks: 200
+  node2vec_p: 1.0
+  node2vec_q: 1.0
+
+fusion:
+  # Weights for multi-signal fusion (Phase 2+)
+  # alpha: hybrid RRF score
+  # beta: citation proximity
+  # gamma: statute overlap
+  # delta: reranker score
+  alpha: 0.3
+  beta: 0.2
+  gamma: 0.1
+  delta: 0.4
+
+audit:
+  # Number of files to sample for diagnostic audit
+  sample_size: 100
