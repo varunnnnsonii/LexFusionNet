@@ -9,6 +9,7 @@ venv.bak/
 
 # Project specific — raw data (large, not version controlled)
 data/**/*.json
+data/**/*.jsonl
 data/**/*.db
 data/**/*.pkl
 data/**/*.txt

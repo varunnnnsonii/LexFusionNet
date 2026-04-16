@@ -5,6 +5,8 @@ Parses raw IndianKanoon judgment text files into structured JSON.
 Handles two distinct document formats:
   - Pre-2000: Contains PETITIONER/RESPONDENT, CITATION, CITATOR INFO, HEADNOTE, ACT blocks
   - Post-2000: Simpler header (title, citations, author, bench) followed by judgment body
+
+Output: Per-year .jsonl files (one JSON record per line) with embedded quality scores.
 """
 
 import hashlib
@@ -16,6 +18,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from src.data.cleaner import clean_text, extract_title_from_first_line
+from src.diagnostics.quality_checker import check_quality
 
 
 @dataclass
@@ -36,6 +39,9 @@ class ParsedJudgment:
     file_size: int = 0
     is_valid: bool = True
     parse_errors: List[str] = field(default_factory=list)
+    quality_score: float = 0.0
+    quality_flag: str = "REJECT"
+    quality_issues: List[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -336,6 +342,9 @@ def parse_file(file_path: Path, year_from_dir: int) -> ParsedJudgment:
     if not citations:
         errors.append("No equivalent citations found")
 
+    # Quality scoring
+    qr = check_quality(raw_text)
+
     return ParsedJudgment(
         case_id=case_id,
         title=title,
@@ -352,29 +361,36 @@ def parse_file(file_path: Path, year_from_dir: int) -> ParsedJudgment:
         file_size=file_size,
         is_valid=is_valid,
         parse_errors=errors,
+        quality_score=qr.score,
+        quality_flag=qr.flag,
+        quality_issues=qr.issues,
     )
 
 
-def parse_corpus(
+def parse_corpus_jsonl(
     raw_data_dir: Path,
     output_dir: Path,
     verbose: bool = True
 ) -> dict:
     """
-    Parse all judgment files in the corpus.
+    Parse all judgment files in the corpus and write per-year JSONL files.
+
+    Each year's records are buffered in memory and written as a single batch
+    to avoid per-file I/O overhead.
 
     Args:
         raw_data_dir: Root directory containing year subdirectories.
-        output_dir: Directory to write parsed JSON files.
+        output_dir: Directory to write JSONL files (one per year).
 
     Returns:
-        Summary dict with counts and error info.
+        Summary dict with counts and quality distribution.
     """
     output_dir.mkdir(parents=True, exist_ok=True)
 
     total = 0
     valid = 0
     invalid = 0
+    quality_counts = {"OK": 0, "REVIEW": 0, "REJECT": 0}
     errors_list = []
 
     # Iterate year directories
@@ -388,10 +404,13 @@ def parse_corpus(
         except ValueError:
             continue
 
-        year_output = output_dir / year_dir.name
-        year_output.mkdir(exist_ok=True)
-
         txt_files = sorted(year_dir.glob('*.txt'))
+        if not txt_files:
+            continue
+
+        # Buffer all records for this year
+        year_records = []
+
         for txt_file in txt_files:
             total += 1
 
@@ -406,23 +425,37 @@ def parse_corpus(
                     'errors': parsed.parse_errors
                 })
 
-            # Write JSON output
-            out_file = year_output / f"{txt_file.stem}.json"
-            with open(out_file, 'w', encoding='utf-8') as f:
-                json.dump(parsed.to_dict(), f, indent=2, ensure_ascii=False)
+            quality_counts[parsed.quality_flag] += 1
+
+            # Build the record dict
+            record = parsed.to_dict()
+            year_records.append(record)
+
+        # Write all records for this year in a single batch
+        jsonl_path = output_dir / f"{year}.jsonl"
+        with open(jsonl_path, 'w', encoding='utf-8') as f:
+            for record in year_records:
+                f.write(json.dumps(record, ensure_ascii=False) + '\n')
 
         if verbose:
             year_count = len(txt_files)
-            print(f"  {year}: {year_count} files parsed")
+            year_ok = sum(1 for r in year_records if r['quality_flag'] == 'OK')
+            print(f"  {year}: {year_count} files → {jsonl_path.name}  "
+                  f"(OK: {year_ok}, REVIEW: {sum(1 for r in year_records if r['quality_flag'] == 'REVIEW')}, "
+                  f"REJECT: {sum(1 for r in year_records if r['quality_flag'] == 'REJECT')})")
 
     summary = {
         'total': total,
         'valid': valid,
         'invalid': invalid,
+        'quality_counts': quality_counts,
         'error_files': errors_list[:50],  # Cap output
     }
 
     if verbose:
         print(f"\nParsing complete: {valid}/{total} valid, {invalid} invalid")
+        print(f"Quality: OK={quality_counts['OK']}, "
+              f"REVIEW={quality_counts['REVIEW']}, "
+              f"REJECT={quality_counts['REJECT']}")
 
     return summary

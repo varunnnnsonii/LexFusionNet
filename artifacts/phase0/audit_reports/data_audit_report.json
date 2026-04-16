@@ -1,0 +1,822 @@
+{
+  "summary": {
+    "total_files": 26688,
+    "total_size_mb": 860.2,
+    "year_range": "1950–2025",
+    "corrupt_files": 8,
+    "duplicate_groups": 6
+  },
+  "year_stats": {
+    "1950": {
+      "count": 61,
+      "total_bytes": 3076647,
+      "avg_bytes": 50436,
+      "min_bytes": 2775,
+      "max_bytes": 556422
+    },
+    "1951": {
+      "count": 85,
+      "total_bytes": 3662515,
+      "avg_bytes": 43088,
+      "min_bytes": 3145,
+      "max_bytes": 788268
+    },
+    "1952": {
+      "count": 112,
+      "total_bytes": 4225350,
+      "avg_bytes": 37726,
+      "min_bytes": 1877,
+      "max_bytes": 282354
+    },
+    "1953": {
+      "count": 129,
+      "total_bytes": 3799577,
+      "avg_bytes": 29454,
+      "min_bytes": 1373,
+      "max_bytes": 201222
+    },
+    "1954": {
+      "count": 187,
+      "total_bytes": 5144579,
+      "avg_bytes": 27511,
+      "min_bytes": 1195,
+      "max_bytes": 530264
+    },
+    "1955": {
+      "count": 130,
+      "total_bytes": 4441171,
+      "avg_bytes": 34162,
+      "min_bytes": 4267,
+      "max_bytes": 496785
+    },
+    "1956": {
+      "count": 118,
+      "total_bytes": 3838234,
+      "avg_bytes": 32527,
+      "min_bytes": 6135,
+      "max_bytes": 128201
+    },
+    "1957": {
+      "count": 159,
+      "total_bytes": 5577935,
+      "avg_bytes": 35081,
+      "min_bytes": 4078,
+      "max_bytes": 195127
+    },
+    "1958": {
+      "count": 179,
+      "total_bytes": 7413197,
+      "avg_bytes": 41414,
+      "min_bytes": 5761,
+      "max_bytes": 404615
+    },
+    "1959": {
+      "count": 151,
+      "total_bytes": 5943702,
+      "avg_bytes": 39362,
+      "min_bytes": 5652,
+      "max_bytes": 241918
+    },
+    "1960": {
+      "count": 348,
+      "total_bytes": 9669564,
+      "avg_bytes": 27786,
+      "min_bytes": 3181,
+      "max_bytes": 199289
+    },
+    "1961": {
+      "count": 400,
+      "total_bytes": 12194902,
+      "avg_bytes": 30487,
+      "min_bytes": 4068,
+      "max_bytes": 408576
+    },
+    "1962": {
+      "count": 398,
+      "total_bytes": 13406770,
+      "avg_bytes": 33685,
+      "min_bytes": 4612,
+      "max_bytes": 304984
+    },
+    "1963": {
+      "count": 318,
+      "total_bytes": 11306382,
+      "avg_bytes": 35554,
+      "min_bytes": 1491,
+      "max_bytes": 258914
+    },
+    "1964": {
+      "count": 351,
+      "total_bytes": 11022689,
+      "avg_bytes": 31403,
+      "min_bytes": 1835,
+      "max_bytes": 314211
+    },
+    "1965": {
+      "count": 387,
+      "total_bytes": 10523677,
+      "avg_bytes": 27192,
+      "min_bytes": 1407,
+      "max_bytes": 136532
+    },
+    "1966": {
+      "count": 321,
+      "total_bytes": 8109574,
+      "avg_bytes": 25263,
+      "min_bytes": 2214,
+      "max_bytes": 205291
+    },
+    "1967": {
+      "count": 376,
+      "total_bytes": 10631996,
+      "avg_bytes": 28276,
+      "min_bytes": 4522,
+      "max_bytes": 541257
+    },
+    "1968": {
+      "count": 393,
+      "total_bytes": 10106291,
+      "avg_bytes": 25715,
+      "min_bytes": 1432,
+      "max_bytes": 179428
+    },
+    "1969": {
+      "count": 400,
+      "total_bytes": 9033937,
+      "avg_bytes": 22584,
+      "min_bytes": 878,
+      "max_bytes": 150904
+    },
+    "1970": {
+      "count": 399,
+      "total_bytes": 9586916,
+      "avg_bytes": 24027,
+      "min_bytes": 1236,
+      "max_bytes": 634652
+    },
+    "1971": {
+      "count": 400,
+      "total_bytes": 10691997,
+      "avg_bytes": 26729,
+      "min_bytes": 1652,
+      "max_bytes": 297567
+    },
+    "1972": {
+      "count": 400,
+      "total_bytes": 10222491,
+      "avg_bytes": 25556,
+      "min_bytes": 2496,
+      "max_bytes": 228359
+    },
+    "1973": {
+      "count": 400,
+      "total_bytes": 12233541,
+      "avg_bytes": 30583,
+      "min_bytes": 903,
+      "max_bytes": 2583365
+    },
+    "1974": {
+      "count": 399,
+      "total_bytes": 11460077,
+      "avg_bytes": 28721,
+      "min_bytes": 568,
+      "max_bytes": 454704
+    },
+    "1975": {
+      "count": 400,
+      "total_bytes": 11685936,
+      "avg_bytes": 29214,
+      "min_bytes": 1272,
+      "max_bytes": 659299
+    },
+    "1976": {
+      "count": 400,
+      "total_bytes": 12194698,
+      "avg_bytes": 30486,
+      "min_bytes": 1392,
+      "max_bytes": 1018232
+    },
+    "1977": {
+      "count": 364,
+      "total_bytes": 9797695,
+      "avg_bytes": 26916,
+      "min_bytes": 796,
+      "max_bytes": 558166
+    },
+    "1978": {
+      "count": 400,
+      "total_bytes": 12826364,
+      "avg_bytes": 32065,
+      "min_bytes": 1392,
+      "max_bytes": 537383
+    },
+    "1979": {
+      "count": 400,
+      "total_bytes": 10652603,
+      "avg_bytes": 26631,
+      "min_bytes": 916,
+      "max_bytes": 241633
+    },
+    "1980": {
+      "count": 399,
+      "total_bytes": 12503699,
+      "avg_bytes": 31337,
+      "min_bytes": 676,
+      "max_bytes": 428273
+    },
+    "1981": {
+      "count": 400,
+      "total_bytes": 14151602,
+      "avg_bytes": 35379,
+      "min_bytes": 750,
+      "max_bytes": 2378532
+    },
+    "1982": {
+      "count": 228,
+      "total_bytes": 6423919,
+      "avg_bytes": 28175,
+      "min_bytes": 717,
+      "max_bytes": 560241
+    },
+    "1983": {
+      "count": 396,
+      "total_bytes": 9658933,
+      "avg_bytes": 24391,
+      "min_bytes": 575,
+      "max_bytes": 329055
+    },
+    "1984": {
+      "count": 368,
+      "total_bytes": 10181978,
+      "avg_bytes": 27668,
+      "min_bytes": 461,
+      "max_bytes": 264354
+    },
+    "1985": {
+      "count": 375,
+      "total_bytes": 12916815,
+      "avg_bytes": 34444,
+      "min_bytes": 936,
+      "max_bytes": 453793
+    },
+    "1986": {
+      "count": 400,
+      "total_bytes": 11229708,
+      "avg_bytes": 28074,
+      "min_bytes": 576,
+      "max_bytes": 251928
+    },
+    "1987": {
+      "count": 400,
+      "total_bytes": 10095097,
+      "avg_bytes": 25237,
+      "min_bytes": 624,
+      "max_bytes": 154649
+    },
+    "1988": {
+      "count": 400,
+      "total_bytes": 11475025,
+      "avg_bytes": 28687,
+      "min_bytes": 1039,
+      "max_bytes": 471089
+    },
+    "1989": {
+      "count": 399,
+      "total_bytes": 11569253,
+      "avg_bytes": 28995,
+      "min_bytes": 559,
+      "max_bytes": 383904
+    },
+    "1990": {
+      "count": 400,
+      "total_bytes": 10351772,
+      "avg_bytes": 25879,
+      "min_bytes": 633,
+      "max_bytes": 511178
+    },
+    "1991": {
+      "count": 399,
+      "total_bytes": 11014859,
+      "avg_bytes": 27606,
+      "min_bytes": 1027,
+      "max_bytes": 332272
+    },
+    "1992": {
+      "count": 398,
+      "total_bytes": 12746331,
+      "avg_bytes": 32025,
+      "min_bytes": 1690,
+      "max_bytes": 706374
+    },
+    "1993": {
+      "count": 399,
+      "total_bytes": 11963084,
+      "avg_bytes": 29982,
+      "min_bytes": 1177,
+      "max_bytes": 666080
+    },
+    "1994": {
+      "count": 396,
+      "total_bytes": 13763447,
+      "avg_bytes": 34756,
+      "min_bytes": 1537,
+      "max_bytes": 767577
+    },
+    "1995": {
+      "count": 398,
+      "total_bytes": 10342163,
+      "avg_bytes": 25985,
+      "min_bytes": 1607,
+      "max_bytes": 385948
+    },
+    "1996": {
+      "count": 399,
+      "total_bytes": 10666376,
+      "avg_bytes": 26732,
+      "min_bytes": 1142,
+      "max_bytes": 549298
+    },
+    "1997": {
+      "count": 400,
+      "total_bytes": 9310055,
+      "avg_bytes": 23275,
+      "min_bytes": 1076,
+      "max_bytes": 398756
+    },
+    "1998": {
+      "count": 385,
+      "total_bytes": 8759544,
+      "avg_bytes": 22752,
+      "min_bytes": 881,
+      "max_bytes": 362160
+    },
+    "1999": {
+      "count": 398,
+      "total_bytes": 10876574,
+      "avg_bytes": 27328,
+      "min_bytes": 1056,
+      "max_bytes": 645618
+    },
+    "2000": {
+      "count": 392,
+      "total_bytes": 10043194,
+      "avg_bytes": 25620,
+      "min_bytes": 473,
+      "max_bytes": 340502
+    },
+    "2001": {
+      "count": 399,
+      "total_bytes": 10301926,
+      "avg_bytes": 25819,
+      "min_bytes": 613,
+      "max_bytes": 170382
+    },
+    "2002": {
+      "count": 397,
+      "total_bytes": 10673750,
+      "avg_bytes": 26886,
+      "min_bytes": 1102,
+      "max_bytes": 504229
+    },
+    "2003": {
+      "count": 396,
+      "total_bytes": 12725844,
+      "avg_bytes": 32135,
+      "min_bytes": 299,
+      "max_bytes": 411112
+    },
+    "2004": {
+      "count": 394,
+      "total_bytes": 12306801,
+      "avg_bytes": 31235,
+      "min_bytes": 1779,
+      "max_bytes": 499111
+    },
+    "2005": {
+      "count": 392,
+      "total_bytes": 12692997,
+      "avg_bytes": 32380,
+      "min_bytes": 1759,
+      "max_bytes": 484345
+    },
+    "2006": {
+      "count": 395,
+      "total_bytes": 13259858,
+      "avg_bytes": 33569,
+      "min_bytes": 2280,
+      "max_bytes": 542521
+    },
+    "2007": {
+      "count": 399,
+      "total_bytes": 10536422,
+      "avg_bytes": 26407,
+      "min_bytes": 608,
+      "max_bytes": 299402
+    },
+    "2008": {
+      "count": 400,
+      "total_bytes": 12159761,
+      "avg_bytes": 30399,
+      "min_bytes": 2351,
+      "max_bytes": 814723
+    },
+    "2009": {
+      "count": 26,
+      "total_bytes": 989832,
+      "avg_bytes": 38070,
+      "min_bytes": 4811,
+      "max_bytes": 104404
+    },
+    "2010": {
+      "count": 400,
+      "total_bytes": 15524731,
+      "avg_bytes": 38811,
+      "min_bytes": 540,
+      "max_bytes": 364084
+    },
+    "2011": {
+      "count": 400,
+      "total_bytes": 16264930,
+      "avg_bytes": 40662,
+      "min_bytes": 2637,
+      "max_bytes": 300967
+    },
+    "2012": {
+      "count": 399,
+      "total_bytes": 17345547,
+      "avg_bytes": 43472,
+      "min_bytes": 1174,
+      "max_bytes": 548869
+    },
+    "2013": {
+      "count": 399,
+      "total_bytes": 16682838,
+      "avg_bytes": 41811,
+      "min_bytes": 216,
+      "max_bytes": 965013
+    },
+    "2014": {
+      "count": 400,
+      "total_bytes": 16371779,
+      "avg_bytes": 40929,
+      "min_bytes": 448,
+      "max_bytes": 662674
+    },
+    "2015": {
+      "count": 398,
+      "total_bytes": 16420095,
+      "avg_bytes": 41256,
+      "min_bytes": 1864,
+      "max_bytes": 1915017
+    },
+    "2016": {
+      "count": 400,
+      "total_bytes": 16256480,
+      "avg_bytes": 40641,
+      "min_bytes": 997,
+      "max_bytes": 1581321
+    },
+    "2017": {
+      "count": 400,
+      "total_bytes": 17242639,
+      "avg_bytes": 43106,
+      "min_bytes": 2035,
+      "max_bytes": 891124
+    },
+    "2018": {
+      "count": 400,
+      "total_bytes": 22282665,
+      "avg_bytes": 55706,
+      "min_bytes": 2174,
+      "max_bytes": 2391650
+    },
+    "2019": {
+      "count": 400,
+      "total_bytes": 21216548,
+      "avg_bytes": 53041,
+      "min_bytes": 676,
+      "max_bytes": 2061002
+    },
+    "2020": {
+      "count": 400,
+      "total_bytes": 24415496,
+      "avg_bytes": 61038,
+      "min_bytes": 4228,
+      "max_bytes": 658080
+    },
+    "2021": {
+      "count": 400,
+      "total_bytes": 24258381,
+      "avg_bytes": 60645,
+      "min_bytes": 1331,
+      "max_bytes": 808604
+    },
+    "2022": {
+      "count": 400,
+      "total_bytes": 22265736,
+      "avg_bytes": 55664,
+      "min_bytes": 1962,
+      "max_bytes": 841731
+    },
+    "2023": {
+      "count": 400,
+      "total_bytes": 21694226,
+      "avg_bytes": 54235,
+      "min_bytes": 4261,
+      "max_bytes": 572118
+    },
+    "2024": {
+      "count": 400,
+      "total_bytes": 29448440,
+      "avg_bytes": 73621,
+      "min_bytes": 7939,
+      "max_bytes": 905885
+    },
+    "2025": {
+      "count": 400,
+      "total_bytes": 14087724,
+      "avg_bytes": 35219,
+      "min_bytes": 4079,
+      "max_bytes": 271367
+    }
+  },
+  "size_distribution": {
+    "> 500 KB": 59,
+    "10 – 50 KB": 18332,
+    "50 – 100 KB": 2807,
+    "1 – 10 KB": 4433,
+    "100 – 500 KB": 1003,
+    "500 B – 1 KB": 46,
+    "< 500 B (corrupt)": 8
+  },
+  "corrupt_files": [
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1984/Digamber_Dattatraya_Deshpande_vs_Savitribai_Dattatraya_Deshpande_And_on_15_February_1984_1.txt",
+      "year": 1984,
+      "size": 461
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2000/Commissioner_Of_Income_Tax_And_Ors_vs_Ranchi_Club_Ltd_on_1_August_2000_1.txt",
+      "year": 2000,
+      "size": 473
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2000/Commissioner_Of_Income_Tax_vs_Prithipal_Singh_And_Co_on_20_July_2000_1.txt",
+      "year": 2000,
+      "size": 485
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2003/Commnr_Of_Income_Tax_Mumbai_vs_Tata_Chemicals_Ltd_on_28_March_2003_1.txt",
+      "year": 2003,
+      "size": 299
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2003/Union_Of_India_Uoi_vs_Ajit_Jain_And_Anr_on_16_January_2003_1.txt",
+      "year": 2003,
+      "size": 456
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2013/M_S_Mutha_Associates_Ors_vs_State_Of_Maharashtra_Ors_on_4_July_2013_1.txt",
+      "year": 2013,
+      "size": 280
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2013/Union_Of_India_Ors_vs_Sanjay_Jethi_Anr_on_18_October_2013_1.txt",
+      "year": 2013,
+      "size": 216
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2014/Lekhraj_Bansal_vs_State_Of_Rajasthan_Anr_on_25_February_2014_1.txt",
+      "year": 2014,
+      "size": 448
+    }
+  ],
+  "duplicates": {
+    "09bd44c74b7a4a0e": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1957/The_Berar_Swadeshi_Vanaspathi_Others__vs_The_Municipal_Committee_Shfgaon_on_15_February_1957.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1957/The_Berar_Swadeshi_Vanaspathi_Others_vs_The_Municipal_Committee_Shfgaon_on_15_February_1957_1.txt"
+    ],
+    "edbc16cdf22c9881": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_And_Ors_on_24_January_2024_1.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_on_24_January_2024_1.txt"
+    ],
+    "2d46847068219e38": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_And_Ors_on_31_January_2024_1.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_on_31_January_2024_1.txt"
+    ],
+    "164f0f88a39bad6f": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_And_Ors_on_6_March_2024_1.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/In_Re___T_N_Godavarman_Thirumulpad_vs_Union_Of_India_on_6_March_2024_1.txt"
+    ],
+    "e6e44061f69cb608": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/Sharif_Ahmad_vs_The_State_Of_Uttar_Pradesh_Home_on_1_May_2024_1.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/Vakil_Ahmad_vs_The_State_Of_Uttar_Pradesh_Home_on_1_May_2024_1.txt"
+    ],
+    "d2a783c2d2b1af5f": [
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/Vijay_Singh_Vijay_Kr_Sharma_vs_The_State_Of_Bihar_on_25_September_2024_1.txt",
+      "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/Vijay_Singh_Vijay_Kr_Sharma_vs_The_State_Of_Bihar_on_4_October_2024_1.txt"
+    ]
+  },
+  "parse_accuracy": {
+    "title_extracted": 100,
+    "date_extracted": 100,
+    "citations_extracted": 88,
+    "author_extracted": 69,
+    "bench_extracted": 95,
+    "headnote_extracted": 41,
+    "acts_extracted": 94,
+    "body_valid": 100,
+    "total_sampled": 100
+  },
+  "parse_errors_sample": [
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1966/Kalarimadathil_Unni_vs_State_Of_Kerala_on_22_April_1966_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1975/Sohan_Singh_And_Ors_vs_General_Manager_Ordnance_Factory_on_18_March_1975_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1999/Raman_Bhai_Naran_Bhai_Patel_And_Ors_vs_State_Of_Gujarat_on_30_November_1999_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1994/Virendra_Gaur_And_Ors_vs_State_Of_Haryana_And_Ors_on_24_November_1994_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2006/Rashtriya_Ispat_Nigam_Limited_Anr_vs_M_S_Verma_Transport_Company_on_8_August_2006_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/Rahul_Verma_vs_Rampat_Lal_Verma_on_21_February_2025_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/Jayshree_Kanabar_vs_State_Of_Maharashtra_on_2_January_2025_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2007/Southern_Petrochemical_Industries_Co_vs_Electricity_Inspector_And_E_T_I_O_on_15_May_2007_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/M_S_Maxim_India_Integrated_Circuit_vs_Andappa_D_By_Lrs_And_Ors_Etc_Etc_on_2_January_2025_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1962/Parmanand_And_Others_vs_Ganpatrao_And_Others_on_12_September_1962_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2022/Rajesh_Prasad_vs_The_State_Of_Bihar_And_Anr_Etc_on_7_January_2022_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2014/Dina_Nath_D_By_Lrs_Anr_vs_Subhash_Chand_Saini_Ors_on_16_April_2014_1.txt",
+      "errors": [
+        "No equivalent citations found"
+      ]
+    }
+  ],
+  "era_patterns": {
+    "1950s": {
+      "sample_size": 10,
+      "total_files": 1311,
+      "patterns": {
+        "PETITIONER_BLOCK": 10,
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 9,
+        "HEADNOTE": 7,
+        "CITATOR_INFO": 3,
+        "ACT_BLOCK": 7
+      }
+    },
+    "1960s": {
+      "sample_size": 10,
+      "total_files": 3692,
+      "patterns": {
+        "HEADNOTE": 9,
+        "ACT_BLOCK": 9,
+        "PETITIONER_BLOCK": 9,
+        "INDIANKANOON_MARKERS": 10,
+        "CITATOR_INFO": 7,
+        "EQUIV_CITATIONS": 8
+      }
+    },
+    "1970s": {
+      "sample_size": 10,
+      "total_files": 3962,
+      "patterns": {
+        "HEADNOTE": 9,
+        "ACT_BLOCK": 9,
+        "PETITIONER_BLOCK": 9,
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 10,
+        "CITATOR_INFO": 4
+      }
+    },
+    "1980s": {
+      "sample_size": 10,
+      "total_files": 3764,
+      "patterns": {
+        "HEADNOTE": 7,
+        "CITATOR_INFO": 2,
+        "ACT_BLOCK": 7,
+        "PETITIONER_BLOCK": 7,
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 9
+      }
+    },
+    "1990s": {
+      "sample_size": 10,
+      "total_files": 3972,
+      "patterns": {
+        "HEADNOTE": 6,
+        "ACT_BLOCK": 6,
+        "PETITIONER_BLOCK": 7,
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 10
+      }
+    },
+    "2000s": {
+      "sample_size": 10,
+      "total_files": 3586,
+      "patterns": {
+        "PETITIONER_BLOCK": 10,
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 8
+      }
+    },
+    "2010s": {
+      "sample_size": 10,
+      "total_files": 3993,
+      "patterns": {
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 10
+      }
+    },
+    "2020s": {
+      "sample_size": 10,
+      "total_files": 2400,
+      "patterns": {
+        "INDIANKANOON_MARKERS": 10,
+        "EQUIV_CITATIONS": 4
+      }
+    }
+  },
+  "quality_summary": {
+    "sample_size": 200,
+    "counts": {
+      "OK": 199,
+      "REVIEW": 1,
+      "REJECT": 0
+    },
+    "ok_percent": 99.5,
+    "review_percent": 0.5,
+    "reject_percent": 0.0
+  },
+  "rejected_files": [],
+  "review_files": [
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2018/Mallikarjun_Kodagali_Dead_vs_The_State_Of_Karnataka_on_12_October_2018_1.txt",
+      "year": 2018,
+      "score": 0.765,
+      "issues": [
+        "Somewhat fragmented text (50% sentences under 4 words)",
+        "Some spaced-out words detected (5 occurrences)",
+        "Frequent symbol bursts (58 occurrences)"
+      ],
+      "check_scores": {
+        "semantic": 1.0,
+        "missing_sections": 1.0,
+        "broken_sentences": 0.7,
+        "encoding": 1.0,
+        "ocr_noise": 0.3
+      }
+    }
+  ]
+}

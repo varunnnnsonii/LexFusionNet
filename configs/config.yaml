@@ -13,7 +13,7 @@ paths:
   bm25_index: "data/processed/bm25_index.pkl"
   citation_graph: "artifacts/citation_graph.graphml"
   citation_graph_pkl: "artifacts/citation_graph.pkl"
-  audit_report: "artifacts/data_audit_report.json"
+  audit_report: "artifacts/phase0/audit_reports/data_audit_report.json"
   eval_results: "artifacts/eval_results"
   models: "artifacts/models"
 

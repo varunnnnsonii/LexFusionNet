@@ -7,6 +7,7 @@ Performs comprehensive diagnostics on the raw judgment dataset:
 - Duplicate detection (body text hash)
 - Header parsing accuracy sampling
 - Structural pattern analysis across eras
+- Quality scoring and auto-flagging (semantic, encoding, OCR noise)
 
 Output: artifacts/data_audit_report.json
 """
@@ -23,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from src.config import get_config
 from src.data.parser import parse_file
+from src.diagnostics.quality_checker import check_quality
 
 
 def compute_body_hash(text: str) -> str:
@@ -249,6 +251,74 @@ def run_audit():
         for p, c in sorted(patterns.items()):
             print(f"    {p}: {c}/{len(decade_sample)}")
 
+    # ── 6. Quality Scoring & Auto-Flagging ───────────────────────────────────
+    print(f"\n{'═' * 60}")
+    print("6. QUALITY SCORING & AUTO-FLAGGING (sample)")
+    print("═" * 60)
+
+    quality_sample_size = min(200, len(all_files))
+    quality_sample = random.sample(all_files, quality_sample_size)
+
+    quality_counts = {"OK": 0, "REVIEW": 0, "REJECT": 0}
+    rejected_files = []
+    review_files = []
+    quality_details = []
+
+    for file_path, year, fsize in quality_sample:
+        try:
+            text = file_path.read_text(encoding='utf-8', errors='replace')
+            qr = check_quality(text)
+
+            quality_counts[qr.flag] += 1
+
+            if qr.flag == "REJECT":
+                rejected_files.append({
+                    'file': str(file_path),
+                    'year': year,
+                    'score': qr.score,
+                    'issues': qr.issues,
+                    'check_scores': qr.check_scores,
+                })
+            elif qr.flag == "REVIEW":
+                review_files.append({
+                    'file': str(file_path),
+                    'year': year,
+                    'score': qr.score,
+                    'issues': qr.issues,
+                    'check_scores': qr.check_scores,
+                })
+
+            quality_details.append({
+                'file': str(file_path),
+                'score': qr.score,
+                'flag': qr.flag,
+            })
+
+        except Exception as e:
+            rejected_files.append({
+                'file': str(file_path),
+                'year': year,
+                'score': 0.0,
+                'issues': [f"Failed to read: {e}"],
+                'check_scores': {},
+            })
+            quality_counts["REJECT"] += 1
+
+    print(f"  Quality sample size: {quality_sample_size}")
+    print(f"  OK:     {quality_counts['OK']} ({quality_counts['OK']/quality_sample_size*100:.1f}%)")
+    print(f"  REVIEW: {quality_counts['REVIEW']} ({quality_counts['REVIEW']/quality_sample_size*100:.1f}%)")
+    print(f"  REJECT: {quality_counts['REJECT']} ({quality_counts['REJECT']/quality_sample_size*100:.1f}%)")
+
+    if rejected_files:
+        print(f"\n  Rejected files ({len(rejected_files)}):")
+        for rf in rejected_files[:10]:
+            print(f"    {Path(rf['file']).name}: score={rf['score']:.3f} — {rf['issues'][:2]}")
+
+    if review_files:
+        print(f"\n  Review-needed files ({len(review_files)}):")
+        for rv in review_files[:10]:
+            print(f"    {Path(rv['file']).name}: score={rv['score']:.3f} — {rv['issues'][:2]}")
+
     # ── Build Final Report ───────────────────────────────────────────────────
     report = {
         'summary': {
@@ -270,6 +340,15 @@ def run_audit():
         'parse_accuracy': parse_results,
         'parse_errors_sample': all_parse_errors[:20],
         'era_patterns': era_patterns,
+        'quality_summary': {
+            'sample_size': quality_sample_size,
+            'counts': quality_counts,
+            'ok_percent': round(quality_counts['OK'] / quality_sample_size * 100, 1),
+            'review_percent': round(quality_counts['REVIEW'] / quality_sample_size * 100, 1),
+            'reject_percent': round(quality_counts['REJECT'] / quality_sample_size * 100, 1),
+        },
+        'rejected_files': rejected_files[:50],
+        'review_files': review_files[:50],
     }
 
     # Write report

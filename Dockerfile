@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Default: run Phase 1 pipeline
-CMD ["python", "-m", "scripts.run_phase1"]
+# Default: run Phase 0 pipeline
+CMD ["python", "-m", "scripts.run_phase0"]

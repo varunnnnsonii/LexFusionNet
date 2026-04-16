@@ -1,0 +1,197 @@
+{
+  "total_files": 26688,
+  "valid_files": 26635,
+  "invalid_files": 53,
+  "quality_distribution": {
+    "OK": 26550,
+    "REVIEW": 128,
+    "REJECT": 10
+  },
+  "quality_percentages": {
+    "OK": 99.5,
+    "REVIEW": 0.5,
+    "REJECT": 0.0
+  },
+  "error_files_sample": [
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1984/Digamber_Dattatraya_Deshpande_vs_Savitribai_Dattatraya_Deshpande_And_on_15_February_1984_1.txt",
+      "errors": [
+        "File too small (< 500 bytes), likely corrupt or stub"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/A_K_Bhatnagar_And_Ors_vs_Union_Of_India_And_Ors_on_9_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Abhay_Shridhar_Ambulkar_vs_S_V_Bhave_Commissioner_Of_Police_And_on_17_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Additional_Secretary_To_The_Government_vs_Smt_Alka_Subhash_Gadia_And_Anr_on_20_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Anand_Bihari_And_Ors_vs_Rajasthan_State_Road_Transport_on_20_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Babulal_Narotfamdas_And_Ors_vs_Commissioner_Of_Income_Tax_Bombay_on_14_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Basthi_Kasim_Saheb_Dead_By_L_Rs_vs_Mysore_State_Road_Transport_on_12_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Bhoop_Alleged_Son_Of_Sheo_vs_Matadin_Bhardwaj_Son_Of_Lakmi_Chand_on_4_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Brathi_Alias_Sukhdev_Singh_vs_State_Of_Punjab_on_31_October_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Commissioner_Of_Income_Tax_Calcutta_vs_British_Paints_India_Ltd_on_13_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Dhan_Singh_And_Ors_Etc_Etc_vs_State_Of_Haryana_And_Ors_on_5_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Dr_Ajay_Kumar_Agrawal_And_Ors_Etc_vs_State_Of_U_P_And_Ors_on_16_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Dy_Commissioner_Of_Sales_Tax_Law_vs_Coco_Fibres_on_4_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/H_C_Puttaswamy_And_Ors_vs_Hon_Ble_Chief_Justice_Of_Karnatakahigh_on_5_November_1990.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Hakim_Ali_And_Anr_vs_Board_Of_Revenue_U_P_And_Ors_on_19_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Hamda_Ammal_vs_Avadiappa_Pathar_And_3_Others_on_7_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Hindustan_Petroleum_Corporation_Ltd_vs_Yashwant_Gajanan_Joshi_And_Ors_on_5_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Income_Tax_Officer_Cuttack_And_Ors_vs_Biju_Patnaik_on_7_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Indian_Metals_And_Ferro_Alloys_Ltd_vs_Collector_Of_Central_Excise_on_22_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Indian_Oil_Corporation_Ltd_vs_Amritsar_Gas_Service_And_Ors_on_19_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/J_K_Aggarwal_vs_Haryana_Seeds_Development_Corporation_on_5_September_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Jaswant_Singh_vs_State_Of_Punjab_And_Ors_on_27_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Jumman_Khan_vs_State_Of_U_P_on_30_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/K_V_Swamynathan_And_Ors_vs_E_V_Padmanabhan_And_Ors_on_21_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/M_O_H_Uduman_And_Ors_vs_M_O_H_Aslum_on_13_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Mahabir_Cold_Storage_vs_Commissioner_Of_Income_Tax_Patna_on_7_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Major_Suresh_Chand_Mehra_vs_Defence_Secretary_U_O_I_And_Others_on_13_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Mangananese_Ore_India_Ltd_vs_Chandi_Lal_Saha_And_Ors_on_1_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Mehra_Bros_vs_Joint_Commercial_Officer_Madras_on_14_November_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    },
+    {
+      "file": "/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1990/Municipal_Corporation_Of_Delhi_vs_Pramod_Kumar_Gupta_on_17_December_1990_1.txt",
+      "errors": [
+        "Body text suspiciously short (0 chars)"
+      ]
+    }
+  ]
+}
