@@ -26,3 +26,7 @@ https://www.kaggle.com/datasets/adarshsingh0903/legal-dataset-sc-judgments-india
 ## Setup
 
 Requirements and installation instructions will be added as the architecture matures.
+
+
+## data 
+data/input/supreme_court_judgments_txt/1950/
