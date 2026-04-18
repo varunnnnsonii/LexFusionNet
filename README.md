@@ -21,7 +21,7 @@ The Indian legal system relies heavily on case law and historical precedent. How
 
 ## Intended Dataset
 
-https://www.kaggle.com/datasets/adarshsingh0903/legal-dataset-sc-judgments-india-19502024
+https://www.kaggle.com/datasets/vxrunsonii/supreme-court-judgments-txt
 
 ## Setup
 
