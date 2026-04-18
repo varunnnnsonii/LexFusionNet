@@ -52,4 +52,17 @@ Keeping: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/V
 Deleted duplicate: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2024/Vijay_Singh_Vijay_Kr_Sharma_vs_The_State_Of_Bihar_on_4_October_2024_1.txt
 
 ✅ Cleanup complete.
-(venv) vxrun@PE02-LT-059:~/LexiFusionNet$ 
+
+Removing irrelevant files without citations (Parse errors from phase0 audit):
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1966/Kalarimadathil_Unni_vs_State_Of_Kerala_on_22_April_1966_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1975/Sohan_Singh_And_Ors_vs_General_Manager_Ordnance_Factory_on_18_March_1975_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1999/Raman_Bhai_Naran_Bhai_Patel_And_Ors_vs_State_Of_Gujarat_on_30_November_1999_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1994/Virendra_Gaur_And_Ors_vs_State_Of_Haryana_And_Ors_on_24_November_1994_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2006/Rashtriya_Ispat_Nigam_Limited_Anr_vs_M_S_Verma_Transport_Company_on_8_August_2006_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/Rahul_Verma_vs_Rampat_Lal_Verma_on_21_February_2025_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/Jayshree_Kanabar_vs_State_Of_Maharashtra_on_2_January_2025_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2007/Southern_Petrochemical_Industries_Co_vs_Electricity_Inspector_And_E_T_I_O_on_15_May_2007_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2025/M_S_Maxim_India_Integrated_Circuit_vs_Andappa_D_By_Lrs_And_Ors_Etc_Etc_on_2_January_2025_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/1962/Parmanand_And_Others_vs_Ganpatrao_And_Others_on_12_September_1962_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2022/Rajesh_Prasad_vs_The_State_Of_Bihar_And_Anr_Etc_on_7_January_2022_1.txt
+Deleted: /home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt/2014/Dina_Nath_D_By_Lrs_Anr_vs_Subhash_Chand_Saini_Ors_on_16_April_2014_1.txt
