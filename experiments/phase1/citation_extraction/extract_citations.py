@@ -32,8 +32,16 @@ RE_CASE_NAMES = re.compile(
     r'\b([A-Z][\w\.\&\'\-]*?(?:\s+(?:[A-Z][\w\.\&\'\-]*?|of|the|and|in|on|&)){0,7}\s+v(?:s)?\.?\s+[A-Z][\w\.\&\'\-]*?(?:\s+(?:[A-Z][\w\.\&\'\-]*?|of|the|and|in|on|&)){0,7})\b'
 )
 
-def clean_whitespace(s):
-    return ' '.join(s.split())
+def normalize_citation(c):
+    c = c.upper()
+    c = re.sub(r'[()\[\]]', '', c)
+    c = re.sub(r'SUPREME\s*COURT', 'SC', c)
+    return ' '.join(c.split())
+
+def clean_case_name(name):
+    name = re.sub(r'^In\s+', '', name, flags=re.IGNORECASE)
+    name = re.sub(r'\s+on$', '', name, flags=re.IGNORECASE)
+    return ' '.join(name.split())
 
 def process_file(filepath):
     """
@@ -55,12 +63,13 @@ def process_file(filepath):
         if equiv_match:
             # May be comma separated: "1950 AIR 27, 1950 SCR 88"
             for c in equiv_match.group(1).split(','):
-                cleaned = clean_whitespace(c)
-                if cleaned: self_cites.add(cleaned)
+                cleaned = normalize_citation(c)
+                if cleaned and len(cleaned) > 6: self_cites.add(cleaned)
                 
         # 2. Look for Neutral INSC formatting
         for match in RE_INSC.finditer(head_text):
-            self_cites.add(clean_whitespace(match.group(1)))
+            cleaned = normalize_citation(match.group(1))
+            if cleaned and len(cleaned) > 6: self_cites.add(cleaned)
             
         # 3. Look for archaic 'CITATION:' block
         citation_block_match = RE_CITATION_BLOCK.search(head_text)
@@ -69,18 +78,20 @@ def process_file(filepath):
             # Find year + reporter + number in block
             cites = re.findall(rf'((?:19|20)\d{{2}}\s+(?:{REPORTERS})\s+\d+)', block, re.IGNORECASE)
             for c in cites:
-                self_cites.add(clean_whitespace(c))
+                cleaned = normalize_citation(c)
+                if cleaned and len(cleaned) > 6: self_cites.add(cleaned)
                 
         # 4. Fallback for Transitional Era with no headers
         if not self_cites:
             case_no_match = RE_CASE_NO.search(head_text)
             if case_no_match:
-                self_cites.add(clean_whitespace("CASE NO: " + case_no_match.group(1)))
+                cleaned = normalize_citation("CASE NO: " + case_no_match.group(1))
+                if cleaned and len(cleaned) > 6: self_cites.add(cleaned)
         
         # Extract Body Citations from entire file
         body_cites = set()
         for match in RE_BODY_CITATIONS.finditer(text):
-            body_cites.add(clean_whitespace(match.group(0)))
+            body_cites.add(normalize_citation(match.group(0)))
             
         # Optional: remove self citations from body citations (to avoid a node pointing to itself unnecessarily)
         body_cites = body_cites - self_cites
@@ -88,7 +99,10 @@ def process_file(filepath):
         # Extract party vs party case names
         case_names = set()
         for match in RE_CASE_NAMES.finditer(text):
-            case_names.add(clean_whitespace(match.group(1)))
+            cn = clean_case_name(match.group(1))
+            has_reporter = bool(re.search(r'\b(?:' + REPORTERS + r'|ALLINDCAS|MANU|ILR)\b', cn, re.IGNORECASE))
+            if not has_reporter and cn:
+                case_names.add(cn)
         
         return {
             'file_id': Path(filepath).stem,
@@ -101,8 +115,8 @@ def process_file(filepath):
         return {'file_id': Path(filepath).stem, 'error': str(e)}
 
 def main():
-    base_dir = r"c:\Users\vedan\.gemini\lexfusion\archive\supreme_court_judgments_txt"
-    output_file = r"c:\Users\vedan\.gemini\lexfusion\citations_network.jsonl"
+    base_dir = r"/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt"
+    output_file = r"/home/vxrun/LexiFusionNet/data/processed/phase1/citations_network.jsonl"
     
     # 1. Discover all txt files (using pathlib for optimal traversal)
     print("Discovering files...")

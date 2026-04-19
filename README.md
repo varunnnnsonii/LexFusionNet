@@ -29,4 +29,20 @@ Requirements and installation instructions will be added as the architecture mat
 
 
 ## data 
-data/input/supreme_court_judgments_txt/1950/
+data/
+├── input/
+│   └── supreme_court_judgments_txt/
+│       └── 1951/
+│           └── xyz.txt
+│
+├── output/
+│
+└── processed/
+    ├── chunks/                  # (currently empty)
+    │
+    ├── phase0/
+    │   └── yearwise_headnotes/
+    │       └── 1950.jsonl       # multiple year-wise files
+    │
+    └── phase1/
+        └── citations_network.jsonl
