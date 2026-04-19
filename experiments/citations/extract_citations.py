@@ -27,6 +27,11 @@ RE_BODY_CITATIONS = re.compile(
     re.IGNORECASE
 )
 
+# Regex for Party vs. Party Case Names (e.g. Maneka Gandhi v. Union of India)
+RE_CASE_NAMES = re.compile(
+    r'\b([A-Z][\w\.\&\'\-]*?(?:\s+(?:[A-Z][\w\.\&\'\-]*?|of|the|and|in|on|&)){0,7}\s+v(?:s)?\.?\s+[A-Z][\w\.\&\'\-]*?(?:\s+(?:[A-Z][\w\.\&\'\-]*?|of|the|and|in|on|&)){0,7})\b'
+)
+
 def clean_whitespace(s):
     return ' '.join(s.split())
 
@@ -71,8 +76,6 @@ def process_file(filepath):
             case_no_match = RE_CASE_NO.search(head_text)
             if case_no_match:
                 self_cites.add(clean_whitespace("CASE NO: " + case_no_match.group(1)))
-                
-        # 5. Fallback if absolutely no identity metrics were found -> Use Filename rules (to be done dynamically by graph engine if needed)
         
         # Extract Body Citations from entire file
         body_cites = set()
@@ -82,11 +85,17 @@ def process_file(filepath):
         # Optional: remove self citations from body citations (to avoid a node pointing to itself unnecessarily)
         body_cites = body_cites - self_cites
         
+        # Extract party vs party case names
+        case_names = set()
+        for match in RE_CASE_NAMES.finditer(text):
+            case_names.add(clean_whitespace(match.group(1)))
+        
         return {
             'file_id': Path(filepath).stem,
             'year': Path(filepath).parent.name,
             'self_citations': list(self_cites),
-            'cited_cases': list(body_cites)
+            'cited_cases': list(body_cites),
+            'case_names': list(case_names)
         }
     except Exception as e:
         return {'file_id': Path(filepath).stem, 'error': str(e)}

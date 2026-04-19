@@ -69,3 +69,6 @@ Thumbs.db
 
 # Deepmind Agents
 .agents/
+
+# Generated Pipeline Data
+citations_network.jsonl
