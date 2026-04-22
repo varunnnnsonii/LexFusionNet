@@ -1,0 +1,560 @@
+{
+  "sample_size": 3000,
+  "total_corpus_size": 26662,
+  "coverage": {
+    "files_with_ipc_mentions": 582,
+    "files_with_act_mentions": 1795,
+    "files_with_constitution_mentions": 1254,
+    "pct_with_ipc": 19.4,
+    "pct_with_acts": 59.8,
+    "pct_with_constitution": 41.8
+  },
+  "ipc_format_templates": {
+    "Section NUM IPC": 890,
+    "Section NUM of the IPC": 238,
+    "Section NUM I.P.C": 238,
+    "s. NUM I.P.C": 206,
+    "Section NUM of the Indian Penal Code": 180,
+    "section NUM IPC": 92,
+    "Section NUM read with Section NUM IPC": 85,
+    "Sections NUM and NUM IPC": 81,
+    "Section NUM of IPC": 76,
+    "section NUM I.P.C": 66,
+    "section NUM of the Indian Penal Code": 49,
+    "Section NUM read with Section NUM of the Indian Penal Code": 45,
+    "Sections NUM NUM and NUM IPC": 39,
+    "Section NUM Part I IPC": 38,
+    "Sections NUM IPC": 33,
+    "Sections NUM and NUM of the IPC": 32,
+    "Section NUM Part II IPC": 30,
+    "Section NUM read with Section NUM I.P.C": 29,
+    "s. NUM IPC": 28,
+    "Section NUM read with Section NUM of the IPC": 25,
+    "Section NUM of the Indian Penal Code, NUM": 22,
+    "ss. NUM and NUM I.P.C": 20,
+    "Sections NUM and NUM of the Indian Penal Code": 18,
+    "S.NUM IPC": 15,
+    "Sections NUM NUM NUM and NUM IPC": 14,
+    "Section NUM read with Section NUM of IPC": 14,
+    "Section NUM of the I.P.C": 14,
+    "Section NUM and NUM IPC": 14,
+    "Sections NUM and NUM I.P.C": 13,
+    "S. NUM IPC": 13
+  },
+  "crpc_format_templates": {
+    "Section NUM Cr.P.C": 547,
+    "Section NUM CrPC": 404,
+    "Section NUM of the Code of Criminal Procedure": 255,
+    "Section NUM of the CrPC": 248,
+    "Section NUM of the Cr.P.C": 205,
+    "Section NUM of the Code of Criminal Procedure, NUM": 95,
+    "Section NUM Cr. P.C": 72,
+    "section NUM of the Code of Criminal Procedure": 62,
+    "Section NUM of CrPC": 59,
+    "s. NUM Cr. P.C": 53,
+    "Section NUM of Cr.P.C": 47,
+    "section NUM Cr.P.C": 33,
+    "Section NUM Cr.PC": 32,
+    "section NUM of the CrPC": 23,
+    "section (NUM of Section NUM of the CrPC": 21,
+    "section NUM of the Code of Criminal Procedure, NUM": 19,
+    "s. NUM Cr. P. C": 16,
+    "s. NUM of the Cr.P.C": 13,
+    "Section NUM of the Cr.PC": 11,
+    "Section NUM Cr. PC": 11
+  },
+  "cpc_format_templates": {
+    "Section NUM CPC": 116,
+    "Section NUM of the Code of Civil Procedure": 88,
+    "Section NUM of the CPC": 82,
+    "Section NUM C.P.C": 58,
+    "section NUM of the CPC": 41,
+    "section NUM of the Code of Civil Procedure": 40,
+    "Section NUM of the Code of Civil Procedure, NUM": 24,
+    "s. NUM C.P.C": 22,
+    "Section NUM of CPC": 10,
+    "section NUM C.P.C": 10,
+    "section NUM CPC": 10,
+    "Section (NUM of Section NUM CPC": 10,
+    "Section NUM of C.P.C": 9,
+    "s. NUM CPC": 8,
+    "Section NUM sub-Section (NUM CPC": 8,
+    "s. NUM of the C.P.C": 5,
+    "Section NUM of Code of Civil Procedure": 5,
+    "Section NUM of the C.P.C": 4,
+    "section NUM of the Code of Civil Procedure, NUM": 4,
+    "Section NUM or Section NUM of the CPC": 3
+  },
+  "generic_act_format_templates": {
+    "Section NUM of the Evidence Act": 452,
+    "Section NUM of the Arbitration Act": 178,
+    "Section NUM of the Limitation Act": 166,
+    "sub-section (NUM of Section NUM of the Act": 139,
+    "Section NUM of the NDPS": 119,
+    "Section NUM of the SARFAESI": 110,
+    "Section NUM of the NDPS Act": 109,
+    "Section NUM of the SARFAESI Act": 104,
+    "Section NUM of the General Clauses Act": 95,
+    "Section NUM of the Transfer of Property Act": 92,
+    "Section NUM of the Companies Act": 92,
+    "Section NUM of the Contract Act": 90,
+    "Section NUM of the Indian Evidence Act": 72,
+    "Section NUM of the NI Act": 70,
+    "Section NUM of the MMDR Act": 70,
+    "Section NUM of the BR Act, NUM": 69,
+    "Section NUM of the Industrial Disputes Act": 66,
+    "Section NUM of the Negotiable Instruments Act": 65,
+    "s. NUM of the Evidence Act": 61,
+    "sub-section (NUM of section NUM of the Act": 59,
+    "Section NUM of the TADA": 59,
+    "Section NUM of the Limitation Act, NUM": 59,
+    "Section NUM of the Income Tax Act, NUM": 58,
+    "Section NUM of the Motor Vehicles Act, NUM": 58,
+    "Section NUM of the TADA Act": 58,
+    "Section NUM of the Income Tax Act": 55,
+    "Section NUM of the Customs Act": 55,
+    "Section NUM of the Land Acquisition Act": 54,
+    "Section NUM of the Arbitration Act, NUM": 53,
+    "s. NUM of the Industrial Disputes Act": 51
+  },
+  "constitution_format_templates": {
+    "Article NUM of the Constitution": 3058,
+    "Art. NUM of the Constitution": 1160,
+    "Article NUM of the Constitution of India": 957,
+    "article NUM of the Constitution": 258,
+    "Articles NUM and NUM of the Constitution": 257,
+    "Articles NUM and NUM of the Constitution of India": 87,
+    "Arts. NUM and NUM of the Constitution": 82,
+    "Article NUM (NUM of the Constitution": 45,
+    "art. NUM of the Constitution": 44,
+    "article NUM of the Constitution of India": 40,
+    "Art. NUM (NUM of the Constitution": 37,
+    "Articles NUM NUM and NUM of the Constitution": 36,
+    "Article NUM or Article NUM of the Constitution": 30,
+    "Article NUM and Article NUM of the Constitution": 27,
+    "article NUM (NUM of the Constitution": 21,
+    "Article NUM and NUM of the Constitution": 20,
+    "Articles NUM NUM and NUM of the Constitution of India": 19,
+    "Articles NUM of the Constitution": 18,
+    "Article NUM read with Article NUM of the Constitution": 16,
+    "Article NUM or NUM of the Constitution": 16
+  },
+  "top_25_ipc_sections": [
+    [
+      "Section 302 IPC",
+      143
+    ],
+    [
+      "Section 306 IPC",
+      58
+    ],
+    [
+      "Section 307 IPC",
+      48
+    ],
+    [
+      "Section 304 Part I IPC",
+      38
+    ],
+    [
+      "Section 149 IPC",
+      37
+    ],
+    [
+      "s. 420 I.P.C",
+      37
+    ],
+    [
+      "Section 302 of the Indian Penal Code",
+      34
+    ],
+    [
+      "Section 304 Part II IPC",
+      30
+    ],
+    [
+      "Section 148 IPC",
+      29
+    ],
+    [
+      "Section 302 read with Section 34 IPC",
+      29
+    ],
+    [
+      "Section 376 IPC",
+      28
+    ],
+    [
+      "Section 304-B IPC",
+      28
+    ],
+    [
+      "Section 302 I.P.C",
+      27
+    ],
+    [
+      "Section 34 IPC",
+      25
+    ],
+    [
+      "s. 34 I.P.C",
+      24
+    ],
+    [
+      "section 302 IPC",
+      23
+    ],
+    [
+      "Section 420 IPC",
+      22
+    ],
+    [
+      "Section 302 of the IPC",
+      21
+    ],
+    [
+      "s. 409 I.P.C",
+      21
+    ],
+    [
+      "Section 300 IPC",
+      20
+    ],
+    [
+      "s. 120B I.P.C",
+      18
+    ],
+    [
+      "Section 302, I.P.C",
+      17
+    ],
+    [
+      "Section 120-B IPC",
+      16
+    ],
+    [
+      "Section 306 I.P.C",
+      16
+    ],
+    [
+      "s. 302 I.P.C",
+      15
+    ]
+  ],
+  "top_25_crpc_sections": [
+    [
+      "Section 482 Cr.P.C",
+      123
+    ],
+    [
+      "Section 313 Cr.P.C",
+      76
+    ],
+    [
+      "Section 482 CrPC",
+      70
+    ],
+    [
+      "Section 125 of the CrPC",
+      67
+    ],
+    [
+      "Section 125 CrPC",
+      62
+    ],
+    [
+      "Section 482 of the Code of Criminal Procedure",
+      57
+    ],
+    [
+      "Section 482 of the Cr.P.C",
+      52
+    ],
+    [
+      "Section 164 Cr.P.C",
+      36
+    ],
+    [
+      "Section 125 of CrPC",
+      31
+    ],
+    [
+      "Section 432 of the CrPC",
+      28
+    ],
+    [
+      "Section 164 CrPC",
+      26
+    ],
+    [
+      "Section 156(3) Cr.P.C",
+      24
+    ],
+    [
+      "Section 313 of the Code of Criminal Procedure",
+      21
+    ],
+    [
+      "Section 313 CrPC",
+      20
+    ],
+    [
+      "Section 167 of the Cr.P.C",
+      20
+    ],
+    [
+      "Section 482 of the Code of Criminal Procedure, 1973",
+      19
+    ],
+    [
+      "Section 482 of the CrPC",
+      19
+    ],
+    [
+      "Section 161 Cr.P.C",
+      17
+    ],
+    [
+      "Section 473 of the Cr.P.C",
+      17
+    ],
+    [
+      "Section 161 of the Code of Criminal Procedure",
+      16
+    ],
+    [
+      "Section 468 of the Cr.P.C",
+      16
+    ],
+    [
+      "section 156(3) of the CrPC",
+      15
+    ],
+    [
+      "Section 465 CrPC",
+      14
+    ],
+    [
+      "Section 313 of the Cr.P.C",
+      14
+    ],
+    [
+      "Section 313 Cr. P.C",
+      13
+    ]
+  ],
+  "top_25_acts_referenced": [
+    [
+      "Evidence Act",
+      548
+    ],
+    [
+      "Limitation Act",
+      228
+    ],
+    [
+      "Arbitration Act",
+      226
+    ],
+    [
+      "General Clauses Act",
+      150
+    ],
+    [
+      "Contract Act",
+      146
+    ],
+    [
+      "Transfer of Property Act",
+      145
+    ],
+    [
+      "Industrial Disputes Act",
+      137
+    ],
+    [
+      "NDPS",
+      127
+    ],
+    [
+      "NDPS Act",
+      126
+    ],
+    [
+      "Companies Act",
+      121
+    ],
+    [
+      "SARFAESI",
+      113
+    ],
+    [
+      "Indian Evidence Act",
+      112
+    ],
+    [
+      "SARFAESI Act",
+      104
+    ],
+    [
+      "TADA",
+      100
+    ],
+    [
+      "Land Acquisition Act",
+      98
+    ],
+    [
+      "NI Act",
+      87
+    ],
+    [
+      "Income Tax Act",
+      82
+    ],
+    [
+      "Customs Act",
+      79
+    ],
+    [
+      "BR Act, 1949",
+      79
+    ],
+    [
+      "MMDR Act",
+      77
+    ],
+    [
+      "Prevention of Corruption Act",
+      77
+    ],
+    [
+      "Negotiable Instruments Act",
+      73
+    ],
+    [
+      "Central Act",
+      73
+    ],
+    [
+      "Income Tax Act, 1961",
+      72
+    ],
+    [
+      "Registration Act",
+      72
+    ]
+  ],
+  "top_25_constitution_articles": [
+    [
+      "Article 226 of the Constitution",
+      417
+    ],
+    [
+      "Article 14 of the Constitution",
+      340
+    ],
+    [
+      "Article 32 of the Constitution",
+      226
+    ],
+    [
+      "Article 136 of the Constitution",
+      223
+    ],
+    [
+      "Art. 226 of the Constitution",
+      163
+    ],
+    [
+      "Article 226 of the Constitution of India",
+      162
+    ],
+    [
+      "Art. 32 of the Constitution",
+      139
+    ],
+    [
+      "Article 21 of the Constitution",
+      130
+    ],
+    [
+      "Article 32 of the Constitution of India",
+      126
+    ],
+    [
+      "Art. 14 of the Constitution",
+      111
+    ],
+    [
+      "Article 14 of the Constitution of India",
+      107
+    ],
+    [
+      "Article 15 of the Constitution",
+      88
+    ],
+    [
+      "Article 136 of the Constitution of India",
+      80
+    ],
+    [
+      "Article 142 of the Constitution of India",
+      68
+    ],
+    [
+      "Article 142 of the Constitution",
+      68
+    ],
+    [
+      "Art. 136 of the Constitution",
+      68
+    ],
+    [
+      "Article 227 of the Constitution",
+      65
+    ],
+    [
+      "Article 19(1)(g) of the Constitution",
+      63
+    ],
+    [
+      "Articles 14 and 16 of the Constitution",
+      57
+    ],
+    [
+      "Article 311 of the Constitution",
+      55
+    ],
+    [
+      "Article 12 of the Constitution",
+      53
+    ],
+    [
+      "Article 309 of the Constitution",
+      52
+    ],
+    [
+      "Article 21 of the Constitution of India",
+      47
+    ],
+    [
+      "Article 141 of the Constitution",
+      44
+    ],
+    [
+      "Articles 226 and 227 of the Constitution",
+      44
+    ]
+  ],
+  "era_wise_ipc_distribution": {
+    "IPC_2010s": 1080,
+    "IPC_2020s": 827,
+    "IPC_2000s": 535,
+    "IPC_1970s": 439,
+    "IPC_1990s": 382,
+    "IPC_1980s": 202,
+    "IPC_1960s": 195,
+    "IPC_1950s": 81
+  }
+}
