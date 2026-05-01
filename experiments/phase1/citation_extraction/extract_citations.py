@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import json
 import logging
 import concurrent.futures
@@ -115,9 +116,10 @@ def process_file(filepath):
         return {'file_id': Path(filepath).stem, 'error': str(e)}
 
 def main():
-    base_dir = r"/home/vxrun/LexiFusionNet/data/input/supreme_court_judgments_txt"
-    output_file = r"/home/vxrun/LexiFusionNet/data/processed/phase1/citations_network.jsonl"
-    
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parents[3]
+    base_dir = project_root / "data" / "input" / "supreme_court_judgments_txt"
+    output_file = project_root / "data" / "processed" / "phase1" / "citations_network.jsonl"
     # 1. Discover all txt files (using pathlib for optimal traversal)
     print("Discovering files...")
     files = list(Path(base_dir).rglob("*.txt"))
@@ -129,11 +131,13 @@ def main():
     errors_count = 0
     missing_self_cites = 0
     
-    print(f"Starting extraction using ThreadPoolExecutor with {os.cpu_count() * 2} workers...")
+    print(f"Starting extraction using ThreadPoolExecutor with {min(32, os.cpu_count() * 2)} workers...")
     # 2. Process concurrently for massive performance
     with open(output_file, 'w', encoding='utf-8') as out_f:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count() * 2) as executor:
-            for result in executor.map(process_file, [str(f) for f in files]):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=min(32, os.cpu_count() * 2)) as executor:
+
+
+            for i, result in enumerate(executor.map(process_file, [str(f) for f in files])):
                 json.dump(result, out_f)
                 out_f.write('\n')
                 
@@ -143,16 +147,26 @@ def main():
                     results_count += 1
                     if not result.get('self_citations'):
                         missing_self_cites += 1
-                        
-                # Progress logging
-                if (results_count + errors_count) % 2500 == 0:
-                    print(f"Processed {results_count + errors_count} / {total_files} files ({(results_count + errors_count)/total_files*100:.1f}%)")
-                    
+
+                # ✅ Advanced Progress Bar (from your first script)
+                if (i + 1) % 100 == 0 or (i + 1) == total_files:
+                    elapsed = time.time() - start_time
+                    rate = (i + 1) / elapsed if elapsed > 0 else 0
+                    eta = (total_files - (i + 1)) / rate if rate > 0 else 0
+                    pct = (i + 1) * 100 // total_files
+                    bar = '#' * (pct // 2) + '-' * (50 - pct // 2)
+
+                    sys.stdout.write(
+                        f"\r  [{bar}] {pct}%  {i+1}/{total_files}  "
+                        f"({rate:.0f}/s  ETA {eta:.0f}s)    "
+                    )
+                    sys.stdout.flush()
+                                
     elapsed = time.time() - start_time
-    print(f"\n--- Extraction Complete in {elapsed:.2f} seconds ---")
+    print(f"\n\n--- Extraction Complete in {elapsed:.2f} seconds ---")
     print(f"Total processed: {results_count}")
     print(f"Errors during processing: {errors_count}")
-    print(f"Files requiring fallback filename-identity (no self-citations found): {missing_self_cites} ({missing_self_cites/total_files*100:.1f}%)")
+    print(f"Files requiring fallback filename-identity (no self-citations found): {missing_self_cites} ({(missing_self_cites / total_files * 100) if total_files else 0:.1f}%)")
     print(f"Data saved to: {output_file}")
 
 if __name__ == '__main__':
