@@ -267,11 +267,17 @@ def process_file_full(fpath, existing_rec):
     # Remove old deprecated columns
     rec.pop('ipc_mentions', None)
     rec.pop('act_mentions', None)
+    for k in EMPTY.keys():
+        rec.pop(k, None)  # Cleans up the root level if they were generated in a previous run
+
 
     try:
         text = fpath.read_text(encoding='utf-8', errors='ignore')
-    except Exception:
-        rec.update(EMPTY)
+    # except Exception:
+    #     rec.update(EMPTY)
+    except Exception as e:
+        print(f"[ERROR] {fid}: {e}")
+        rec['statutes'] = {k: [] for k in EMPTY.keys()} # Creates a fresh empty dict
         return rec, 0
 
     t0 = time.perf_counter()
@@ -284,15 +290,20 @@ def process_file_full(fpath, existing_rec):
         rec['case_names'] = c_names
         
     # 2. Extract statutes
-    rec.update(extract(text))
+    # rec.update(extract(text))
+    rec['statutes'] = extract(text)
     ms = (time.perf_counter() - t0) * 1000
     
     return rec, ms
 
 
 def main():
-    base = Path(__file__).resolve().parent.parent / "archive" / "supreme_court_judgments_txt"
-    jpath = Path(__file__).resolve().parent.parent / "citations_network.jsonl"
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parents[3]
+    # base = Path(__file__).resolve().parent.parent / "archive" / "supreme_court_judgments_txt"
+
+    base  = project_root / "data" / "input" / "supreme_court_judgments_txt"
+    jpath = project_root / "data" / "processed" / "phase1" / "citations_network.jsonl"
     tmp = jpath.with_suffix('.tmp')
 
     # --- Load ---
