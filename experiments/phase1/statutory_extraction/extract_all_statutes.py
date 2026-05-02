@@ -299,7 +299,7 @@ def process_file_full(fpath, existing_rec):
 
 def main():
     script_dir = Path(__file__).resolve().parent
-    project_root = script_dir.parents[3]
+    project_root = script_dir.parents[2]
     # base = Path(__file__).resolve().parent.parent / "archive" / "supreme_court_judgments_txt"
 
     base  = project_root / "data" / "input" / "supreme_court_judgments_txt"

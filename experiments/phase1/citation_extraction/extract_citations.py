@@ -117,7 +117,7 @@ def process_file(filepath):
 
 def main():
     script_dir = Path(__file__).resolve().parent
-    project_root = script_dir.parents[3]
+    project_root = script_dir.parents[2]
     base_dir = project_root / "data" / "input" / "supreme_court_judgments_txt"
     output_file = project_root / "data" / "processed" / "phase1" / "citations_network.jsonl"
     # 1. Discover all txt files (using pathlib for optimal traversal)
