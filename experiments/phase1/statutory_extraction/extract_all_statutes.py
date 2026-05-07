@@ -166,10 +166,35 @@ RE_BARE = re.compile(
     r'(?:\s*,\s*(?:Section\s+)?\d[\w\(\)\-]*){2,}'
     r'(?:\s+and\s+(?:Section\s+)?\d[\w\(\)\-]*)?\b', re.I)
 
+# --- 11. Raw ACT: header block (Indian Kanoon metadata) ---
+RE_ACT_BLOCK = re.compile(
+    r'\bACT:\s*(.*?)\s*Indian\s+Kanoon\s*-\s*http://indiankanoon\.org',
+    re.I | re.S)
+
 
 # ── EXTRACTION ───────────────────────────────────────────────────────────────
 
+def extract_raw_act_block(text):
+    """Extract the raw ACT: header block from the document head.
+    Only scans the first 4000 chars since the ACT block consistently
+    appears near the top of Indian Kanoon judgments."""
+    head = text[:4000]
+
+    m = RE_ACT_BLOCK.search(head)
+    if not m:
+        return ""
+
+    block = clean(m.group(1))
+
+    # cleanup repeated whitespace/newlines/page artifacts
+    block = re.sub(r'\s+', ' ', block)
+
+    return block.strip()
+
+
 def extract(text):
+    raw_act_block = extract_raw_act_block(text)
+
     return {
         'ipc_sections':        dedup(find_all(RE_IPC, text) + find_all(RE_IPC_FULL, text) +
                                      find_all(RE_IPC_ABBR, text) + find_all(RE_IPC_PART, text)),
@@ -186,12 +211,15 @@ def extract(text):
                                      find_all(RE_CLAUSE, text) + find_all(RE_SUBSEC, text)),
         'rw_combinations':     dedup(find_all(RE_RW, text) + find_all(RE_RW_ABBR, text)),
         'bare_section_lists':  find_all(RE_BARE, text),
+        'raw_act_block':       raw_act_block,
     }
 
 
-EMPTY = {k: [] for k in ['ipc_sections','bns_sections','crpc_sections','bnss_sections',
-                          'cpc_sections','constitutional_refs','order_rules',
-                          'named_act_sections','rw_combinations','bare_section_lists']}
+_LIST_KEYS = ['ipc_sections','bns_sections','crpc_sections','bnss_sections',
+              'cpc_sections','constitutional_refs','order_rules',
+              'named_act_sections','rw_combinations','bare_section_lists']
+EMPTY = {k: [] for k in _LIST_KEYS}
+EMPTY['raw_act_block'] = ''
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 

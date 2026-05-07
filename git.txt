@@ -1,1 +1,1 @@
-git add . && git commit -m "Statutory updated with 10 columns merged and error managed partially" && git push -u origin main
+git add . && git commit -m "Statutory updated with raw act block reducing faliures by 14 percent in Statuatory Extraction" && git push -u origin main
