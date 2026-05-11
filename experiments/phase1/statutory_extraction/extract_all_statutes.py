@@ -192,10 +192,86 @@ def extract_raw_act_block(text):
     return block.strip()
 
 
+# ── SENTENCE BOUNDARY CHARS for additional_acts fallback ─────────────────────
+_SENT_BOUNDARY = {'.', '!', '?', '\n'}
+
+# Precompiled regex for finding standalone "Act" (case-insensitive, word boundary)
+_RE_ACT_WORD = re.compile(r'\bact\b', re.I)
+
+
+def extract_additional_acts(text):
+    """Token-window fallback extractor for files where all primary regex
+    categories failed.  For every standalone 'Act' occurrence, extract
+    up to 5 words before and 4 words after, stopping at sentence
+    boundaries (.  !  ?  newline).  Returns deduplicated list.
+
+    Algorithm (no regex backtracking risk):
+      1. Find every match position of r'\bact\b' (constant-time per match).
+      2. For each match, walk backwards char-by-char collecting up to 5
+         preceding words, stopping at any sentence boundary.
+      3. Walk forwards collecting up to 4 following words, same rule.
+      4. Join the window into a cleaned string.
+      5. Deduplicate case-insensitively.
+    """
+    results = []
+
+    for m in _RE_ACT_WORD.finditer(text):
+        act_start = m.start()
+        act_end = m.end()
+
+        # Skip "ACT:" heading labels (Indian Kanoon metadata headers)
+        if act_end < len(text) and text[act_end] == ':':
+            continue
+
+        # ── collect up to 5 words BEFORE ─────────────────────────────────
+        before_words = []
+        i = act_start - 1
+        while i >= 0 and len(before_words) < 5:
+            ch = text[i]
+            if ch in _SENT_BOUNDARY:
+                break
+            if ch.isspace():
+                i -= 1
+                continue
+            # collect one word (walk back to its start)
+            word_end = i + 1
+            while i >= 0 and not text[i].isspace() and text[i] not in _SENT_BOUNDARY:
+                i -= 1
+            word = text[i + 1:word_end]
+            before_words.append(word)
+            # don't decrement i again — the while-condition handles it
+        before_words.reverse()
+
+        # ── collect up to 4 words AFTER ──────────────────────────────────
+        after_words = []
+        j = act_end
+        text_len = len(text)
+        while j < text_len and len(after_words) < 4:
+            ch = text[j]
+            if ch in _SENT_BOUNDARY:
+                break
+            if ch.isspace():
+                j += 1
+                continue
+            # collect one word (walk forward to its end)
+            word_start = j
+            while j < text_len and not text[j].isspace() and text[j] not in _SENT_BOUNDARY:
+                j += 1
+            word = text[word_start:j]
+            after_words.append(word)
+
+        snippet = ' '.join(before_words + [m.group(0)] + after_words)
+        snippet = clean(snippet)
+        if snippet:
+            results.append(snippet)
+
+    return dedup(results)
+
+
 def extract(text):
     raw_act_block = extract_raw_act_block(text)
 
-    return {
+    statutes = {
         'ipc_sections':        dedup(find_all(RE_IPC, text) + find_all(RE_IPC_FULL, text) +
                                      find_all(RE_IPC_ABBR, text) + find_all(RE_IPC_PART, text)),
         'bns_sections':        find_all(RE_BNS, text),
@@ -214,10 +290,28 @@ def extract(text):
         'raw_act_block':       raw_act_block,
     }
 
+    # ── Fallback: additional_acts ────────────────────────────────────────
+    # Only fire when ALL extraction categories are empty (including raw_act_block).
+    _CHECK_KEYS = [
+        'ipc_sections', 'bns_sections', 'crpc_sections', 'bnss_sections',
+        'cpc_sections', 'constitutional_refs', 'order_rules',
+        'named_act_sections', 'rw_combinations', 'bare_section_lists',
+        'raw_act_block',
+    ]
+    all_primary_empty = all(not statutes[k] for k in _CHECK_KEYS)
+
+    if all_primary_empty:
+        statutes['additional_acts'] = extract_additional_acts(text)
+    else:
+        statutes['additional_acts'] = []
+
+    return statutes
+
 
 _LIST_KEYS = ['ipc_sections','bns_sections','crpc_sections','bnss_sections',
               'cpc_sections','constitutional_refs','order_rules',
-              'named_act_sections','rw_combinations','bare_section_lists']
+              'named_act_sections','rw_combinations','bare_section_lists',
+              'additional_acts']
 EMPTY = {k: [] for k in _LIST_KEYS}
 EMPTY['raw_act_block'] = ''
 
