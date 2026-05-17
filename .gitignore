@@ -31,6 +31,11 @@ data/**/*.pdf
 # Qdrant Docker volume
 qdrant_data/
 
+# Neo4j local installation (binaries + data)
+tools/
+neo4j_data/
+neo4j_plugins/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 

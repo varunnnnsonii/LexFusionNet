@@ -83,6 +83,12 @@ graph:
   node2vec_p: 1.0
   node2vec_q: 1.0
 
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "lexifusionnet"
+  database: "neo4j"
+
 fusion:
   # Weights for multi-signal fusion (Phase 2+)
   # alpha: hybrid RRF score

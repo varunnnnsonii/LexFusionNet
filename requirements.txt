@@ -16,6 +16,7 @@ tiktoken>=0.7
 # === Phase 2: Structural Intelligence ===
 networkx>=3.2
 scipy>=1.12
+neo4j>=5.0
 
 # === Phase 3: Advanced Modeling ===
 gensim>=4.3

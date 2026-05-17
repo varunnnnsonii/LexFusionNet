@@ -11,6 +11,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - CUDA_VISIBLE_DEVICES=0
+      - NEO4J_URI=bolt://neo4j:7687
     deploy:
       resources:
         reservations:
@@ -20,6 +21,7 @@ services:
               capabilities: [gpu]
     depends_on:
       - qdrant
+      - neo4j
 
   qdrant:
     image: qdrant/qdrant:latest
@@ -32,5 +34,23 @@ services:
       - QDRANT__STORAGE__STORAGE_PATH=/qdrant/storage
     mem_limit: 4g
 
+  neo4j:
+    image: neo4j:5-community
+    ports:
+      - "7474:7474"   # Browser UI
+      - "7687:7687"   # Bolt protocol
+    volumes:
+      - neo4j_data:/data
+      - neo4j_plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/lexifusionnet
+      - NEO4J_PLUGINS=["apoc"]
+      - NEO4J_server_memory_heap_initial__size=1g
+      - NEO4J_server_memory_heap_max__size=2g
+      - NEO4J_server_memory_pagecache_size=256m
+    mem_limit: 4g
+
 volumes:
   qdrant_data:
+  neo4j_data:
+  neo4j_plugins:
